@@ -1,12 +1,10 @@
-import { createRoot } from 'react-dom/client';
-import { useContext, createContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useField } from './hooks';
 
 import {
   BrowserRouter as Router,
   Routes, Route, Link, useMatch,
   useNavigate,
-  useLocation
 } from 'react-router-dom'
 
 const Menu = () => {
@@ -112,23 +110,34 @@ const CreateNew = (props) => {
     props.setNotification(content.value)
   }
 
+  const resetForm = (e) => {
+    console.log(content)
+    console.log('reset start')
+    content.resetField()
+    author.resetField()
+    info.resetField()
+    console.log('reset end - content: ', content.value)
+  }
+
+
   return (
     <div>
       <h2>create a new anecdote</h2>
       <form onSubmit={handleSubmit}>
         <div>
           content
-          <input {...content} />
+          <input {...content.fieldProps} />
         </div>
         <div>
           author
-          <input {...author}/>
+          <input {...author.fieldProps}/>
         </div>
         <div>
           url for more info
-          <input {...info}/>
+          <input {...info.fieldProps}/>
         </div>
         <button type='submit'>create</button>
+        <button type='button' onClick={resetForm}>reset</button>
       </form>
     </div>
   )
