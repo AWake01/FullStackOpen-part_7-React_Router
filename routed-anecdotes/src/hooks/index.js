@@ -11,7 +11,7 @@ export const useField = (type) => {
         setValue('')
     }
 
-    return { 
+    return {    //fieldProps provide all required input props without resetField fuction
         fieldProps: {
             type, value, onChange
         },
