@@ -26,5 +26,4 @@ export default defineConfig([
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
   },
-  reactHooks.configs.flat.recommended,
 ])

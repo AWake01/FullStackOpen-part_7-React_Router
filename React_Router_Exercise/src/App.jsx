@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom/client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import {
   BrowserRouter as Router,
