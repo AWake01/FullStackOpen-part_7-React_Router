@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import axios from 'axios'
 
 export const useCountry = (name) => {
-    const [country, setCountry] = useState(null)
+    const [data, setData] = useState(null)
     const [found, setFound] = useState(false)
 
     useEffect(() => {
@@ -10,9 +10,7 @@ export const useCountry = (name) => {
             const url = `${baseUrl}/${name}`
             axios.get(url)
                 .then(response => {
-                    console.log('res: ', response)
-                    setCountry(response.data)
-                    console.log(response.data)
+                    setData(response.data)
                     setFound(true)
                 })
                 .catch(error => {
@@ -21,7 +19,7 @@ export const useCountry = (name) => {
                 })
         }, [name])
 
-    return { country, found }
+    return { data, found }
 }
 
 export const useField = (type) => {

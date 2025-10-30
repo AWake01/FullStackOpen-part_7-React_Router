@@ -48,7 +48,7 @@ const App = () => {
         <button>find</button>
       </form>
 
-      <Country country={country.country} found={country.found} />
+      <Country country={country.data} found={country.found} />
     </div>
   )
 }
